@@ -1,0 +1,9 @@
+:root {
+  --bgc-overlay: rgba(0, 0, 0, 0.5);
+
+  --c-gray: #cccccc;
+  --c-primary: #ea5394;
+  --c-txt: #4e4e4e;
+
+  --w-pc: 768px;
+}
