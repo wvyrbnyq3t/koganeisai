@@ -130,6 +130,32 @@ body {
   }
 }
 
+.btn-icn {
+  position: relative;
+
+  &::before {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.5em;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translate(-50%, -50%);
+  }
+}
+.btn-icn-arrow-back::before {
+  content: "\e5e1";
+}
+
 /* card */
 .card {
   box-shadow: 0 0 0.1rem #333333;
@@ -189,21 +215,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .card-res {
-    display: grid;
-    grid-template-columns: 3fr 7fr;
-
-    .card-image {
-      grid-area: 1/1/3/2;
-    }
-    .card-content {
-      padding: 0.8rem;
-    }
-    .card-link {
-      padding: 0 0.8rem 0.8rem;
-      grid-area: 2/2/3/3;
-    }
-  }
   .row {
     .col {
       &.m6 {
