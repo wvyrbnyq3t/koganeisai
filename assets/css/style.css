@@ -1,5 +1,5 @@
 html {
-  font-size: clamp(8px, 1.5dvw, 10px);
+  font-size: 10px;
   user-select: none;
   touch-action: pan-x pan-y;
 }
@@ -92,6 +92,26 @@ body {
   }
 }
 
+/* badge */
+.badge {
+  background-color: var(--c-primary);
+  border-radius: 99rem;
+  color: #ffffff;
+  display: inline-block;
+  padding: 0.75em 2em;
+  text-align: center;
+  width: fit-content;
+}
+.badge-secondary {
+  background-color: transparent;
+  border: 0.1rem solid var(--c-primary);
+  color: var(--c-primary);
+}
+.badge-small {
+  font-size: 1.2rem;
+  padding: 0.25em 1em;
+}
+
 /* button */
 .btn-primary {
   background-color: var(--c-primary);
@@ -130,41 +150,21 @@ body {
   }
 }
 
-.btn-icn {
-  position: relative;
-
-  &::before {
-    font-family: "Material Symbols Outlined";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 1.5em;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-
-    position: absolute;
-    top: 50%;
-    right: 1em;
-    transform: translate(-50%, -50%);
-  }
-}
-.btn-icn-arrow-back::before {
-  content: "\e5e1";
-}
-
 /* card */
 .card {
-  box-shadow: 0 0 0.1rem #333333;
+  box-shadow: 0 0 0.2rem #333333;
   border-radius: 0.4rem;
   overflow: hidden;
 
+  > *:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
   .card-content {
-    padding: 1.6rem;
+    padding: 0 1.6rem;
 
+    > *:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
     .title {
       font-size: 1.6rem;
       font-weight: 700;
@@ -190,11 +190,8 @@ body {
   grid-template-columns: repeat(12, 1fr);
 
   .col {
+    height: 100%;
     width: 100%;
-
-    &:hover {
-      opacity: 0.9;
-    }
 
     &.s2 {
       grid-column: span 2;
@@ -214,14 +211,52 @@ body {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .row {
     .col {
-      &.m6 {
-        grid-column: span 6 !important;
-      }
       &.m12 {
-        grid-column: span 12 !important;
+        grid-column: span 12;
+      }
+    }
+  }
+}
+
+/* list */
+.list-link {
+  .list-item {
+    position: relative;
+
+    &::after {
+      font-family: "Material Symbols Outlined";
+      font-weight: normal;
+      font-style: normal;
+      font-size: 1em;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      content: "\e5e1";
+      color: var(--c-primary);
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      transform: translate(-50%, -50%);
+    }
+    a {
+      border-bottom: 0.1rem solid var(--c-primary);
+      color: var(--c-primary);
+      display: inline-block;
+      font-weight: 700;
+      padding: 1em 4em 1em 1em;
+      transition: opacity 0.4s;
+      width: 100%;
+
+      &:hover {
+        opacity: 0.7;
       }
     }
   }
@@ -229,5 +264,5 @@ body {
 
 /* width */
 .w-100 {
-  width: 100% !important;
+  width: 100%;
 }
