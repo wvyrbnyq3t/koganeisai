@@ -1,5 +1,5 @@
 html {
-  font-size: min(1.3dvw, 10px);
+  font-size: 10px;
   user-select: none;
   touch-action: pan-x pan-y;
 }
