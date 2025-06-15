@@ -1,0 +1,229 @@
+/* -----------------------
+  README: class 命名規則
+
+  1. BEM を採用
+  2. キャメルケースを用いる
+   ----------------------- */
+
+html {
+  font-size: 10px;
+  touch-action: pan-x pan-y;
+}
+body {
+  color: var(--c-txt);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+  position: relative;
+  z-index: 0;
+}
+
+/* page */
+.page {
+  background-color: #f7f5f5;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+.page__inner {
+  background-color: #ffffff;
+  box-shadow: 0 0 0.1rem #333333;
+  height: 100%;
+  width: min(100%, var(--w-pc));
+  margin: 0 auto;
+  min-height: 100svh;
+}
+
+/* hero */
+.hero__inner {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.hero__title {
+  color: #ffffff;
+  font-size: min(6.25svw, 4.8rem);
+  font-weight: 700;
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
+  text-shadow: 0 0 0.1rem #333333;
+  width: calc(100% - 4.8rem);
+}
+.hero__title--en {
+  display: block;
+  font-size: 0.5em;
+  line-height: 1;
+
+  &::first-letter {
+    color: var(--c-primary);
+    font-size: 1.5em;
+  }
+}
+.hero__title--ja {
+  display: block;
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+/* main */
+.main__inner {
+  height: 100%;
+  width: 100%;
+  padding: 2.4rem;
+  position: relative;
+}
+
+/* footer */
+.footer--sticky {
+  background-color: #ffffff;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.footer__inner {
+  padding: 2.4rem 2.4rem calc(2.4rem + env(safe-area-inset-bottom));
+}
+
+/* section */
+.section__inner {
+  margin-bottom: 3.2rem;
+}
+.section__title {
+  color: var(--c-primary);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+  text-align: center;
+}
+.section__item {
+  margin-bottom: 1.6rem;
+}
+
+/* container */
+.container__inner {
+  margin-bottom: 1.6rem;
+}
+.container__title {
+  border-left: 0.25em solid var(--c-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+  padding: 0.25em 0 0.25em 0.5em;
+}
+.container__item {
+  margin-bottom: 0.8rem;
+}
+
+/* button */
+.button {
+  border: 0.1rem solid transparent;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 1em;
+  position: relative;
+  width: fit-content;
+
+  &:not([aria-disabled="true"]) {
+    transition: opacity 0.4s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &[aria-disabled="true"] {
+    cursor: not-allowed !important;
+  }
+}
+.button--secondary {
+  border-color: var(--c-primary);
+  color: var(--c-primary);
+
+  &[aria-disabled="true"] {
+    border-color: var(--c-gray) !important;
+    color: var(--c-gray) !important;
+  }
+}
+.button--small {
+  padding: 0.5em !important;
+}
+.button--widthFull {
+  width: 100% !important;
+}
+
+.button__icon {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5em;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+/* card */
+.card {
+  background-color: #ffffff;
+  box-shadow: 0 0 0.1rem #333333;
+  border-radius: 0.8rem;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card__body {
+  padding: 1.6rem;
+
+  & >*:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
+}
+.card__title {
+  font-weight: 700;
+}
+
+/* col */
+.col {
+  display: grid;
+  gap: 0.8rem;
+}
+.col--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.col--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.col--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.col--12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.cell {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 550px) {
+  .col--m1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .col--m2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
